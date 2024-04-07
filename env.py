@@ -271,9 +271,9 @@ class MinesweeperDiscreetEnv(gym.Env):
         self.num_actions = 0
 
         self.observation_space = spaces.Box(low=-2, high=9,
-                                            shape=(self.board_size, self.board_size), dtype=np.int)
-        self.action_space = spaces.Discrete(self.board_size*self.board_size)
-        self.valid_actions = np.ones((self.board_size * self.board_size), dtype=np.bool)
+                                            shape=(self.board_size, self.board_size), dtype= int)
+        self.action_space = spaces.Discrete(self.board_size * self.board_size)
+        self.valid_actions = np.ones((self.board_size * self.board_size), dtype= bool)
 
     def count_neighbour_mines(self, x, y):
         """return number of mines in neighbour cells given an x-y coordinate
