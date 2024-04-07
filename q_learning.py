@@ -117,8 +117,8 @@ env.reset()
 
 # Parameter tuning
 
-total_episodes = 10000
-learning_rate = [0.7]
+total_episodes = 100
+learning_rate = 0.7
 # Max steps per episode
 max_steps = 99
 # Discounting rate
@@ -165,7 +165,8 @@ for episode in range(total_episodes):
 
         # Else doing a random choice --> exploration
         else:
-            action = env.action_space.sample()
+            actions = env.action_space
+            action = actions.sample()
             # print("action random", action)
 
         # Take the action (a) and observe the outcome state(s') and reward (r)
@@ -195,7 +196,7 @@ for episode in range(total_episodes):
     # Reduce epsilon (because we need less and less exploration)
     epsilon = min_epsilon + (max_epsilon - min_epsilon) * np.exp(-decay_rate * episode)
     rewards.append(total_rewards)
-    # print("episode:", episode, "reward:", total_rewards)
+    print("episode:", episode, "reward:", total_rewards)
 
 print("Score over time: " + str(sum(rewards) / total_episodes))
 print()

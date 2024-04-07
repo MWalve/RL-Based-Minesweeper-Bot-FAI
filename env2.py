@@ -14,6 +14,7 @@ os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = 'hide'
 import pygame
 import pygame.locals
 import abc
+from gym import spaces
 
 
 
@@ -112,7 +113,7 @@ class MinesweeperEnv(object):
         self.n_progress = 0
         self.n_wins = 0
         self.window = None
-        self.action_space = np.array(self.nrows * self.ncols)
+        self.action_space = spaces.Discrete(self.nrows * self.ncols)
         self.rewards = rewards
 
     def init_grid(self):
