@@ -717,6 +717,7 @@ for episode in range(100):
 
             break
         state = new_state
+        
 
     env.render('window')
     rewards.append(total_rewards)
